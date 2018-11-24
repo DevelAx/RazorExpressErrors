@@ -8,7 +8,21 @@ app.get('/', (req, res) => {
     res.render("index");
 });
 
-raz.handleErrors(app);
+app.use((err, req, res, next) => {
+    if (res.headersSent)
+        return next(err); // must
+
+    var env = app.get('env');
+
+    if (env === "development" && err.name == "RazorError") {
+        var errorHtml = err.html();
+        res.status(500);
+        res.send(errorHtml);
+        return;
+    }
+    
+    return next(err);
+});
 
 const port = 1337;
 app.listen(port, () => {
