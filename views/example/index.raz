@@ -1,0 +1,4 @@
+<div>
+    Home page content...
+    @Html.partial("_people")
+</div>

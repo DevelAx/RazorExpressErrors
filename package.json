@@ -2,7 +2,7 @@
   "name": "razor-express-examples",
   "version": "1.0.0",
   "description": "Examples of using Razor-Express library with Express in Node.js web-server.",
-  "main": "error-handling-1.js",
+  "main": "inner-error-example.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

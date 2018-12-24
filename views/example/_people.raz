@@ -1,0 +1,8 @@
+<div>
+    <h2>People</h2>
+    <ul>
+        @for(var i = 0; i <= Model.people.length; i++){
+            <li><strong>@Model.people[i].name</strong><span> - </span><span>@Model.people[i].age</span></li>
+        }
+    </ul>
+</div>
