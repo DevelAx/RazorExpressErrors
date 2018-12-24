@@ -14,7 +14,7 @@ app.use((err, req, res, next) => {
 
     var env = app.get('env');
 
-    if (env === "development" && err.name == "RazorError") {
+    if (env !== "production" && err.name == "RazorError") {
         var errorHtml = err.html();
         res.status(500);
         res.send(errorHtml);
