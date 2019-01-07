@@ -1,7 +1,8 @@
 const app = require("express")();
-const raz = require("raz");
 
-raz.register(app);
+const raz = require("raz")
+raz.setup(app, { register: true });
+
 app.set("views", "views/error-handling/");
 
 app.get('/', (req, res) => {
@@ -14,7 +15,7 @@ app.use((err, req, res, next) => {
 
     var env = app.get('env');
 
-    if (env !== "production" && err.name == "RazorError") {
+    if (env !== "production" && err.isRazorError) {
         var errorHtml = err.html();
         res.status(500);
         res.send(errorHtml);
