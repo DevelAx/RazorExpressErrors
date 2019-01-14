@@ -1,6 +1,6 @@
 const app = require("express")();
 const raz = require("raz");
-raz.setup(app, { register: true });
+raz.register(app);
 
 app.set("views", "views/error-handling/");
 
